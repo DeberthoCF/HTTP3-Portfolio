@@ -2,6 +2,15 @@
   padding: 5rem 1.5rem;
   background: #111827;
   scroll-margin-top: 90px;
+  min-height: 100vh;
+
+  padding: 120px 25px 80px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 }
 
 .section-header {

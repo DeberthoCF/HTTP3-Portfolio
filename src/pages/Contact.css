@@ -3,6 +3,16 @@
   background: #081320;
   color: white;
   scroll-margin-top: 90px;
+
+  min-height: 100vh;
+
+  padding: 120px 25px 80px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 }
 
 .contact-header {
