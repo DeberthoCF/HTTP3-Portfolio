@@ -1,6 +1,7 @@
 .team-section {
   padding: 5rem 1.5rem;
   background: #111827;
+  scroll-margin-top: 90px;
 }
 
 .section-header {

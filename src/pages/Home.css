@@ -11,6 +11,8 @@
   text-align: center;
 
   background: linear-gradient(180deg, #0f172a 0%, #111827 55%, #020617 100%);
+  scroll-margin-top: 90px;
+  
 }
 
 .hero-content {

@@ -1,75 +1,102 @@
-/*import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import './Header.css';
 
 function Header() {
+  const [active, setActive] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.55,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth',
+    });
+
+    setMenuOpen(false);
+  };
+
   return (
     <header className="header">
       <div className="container">
-        <Link to="/" className="logo">
+        <a
+          href="#home"
+          className="logo"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('home');
+          }}
+        >
           HTTP<span>3</span>
-        </Link>
+        </a>
 
-        <nav>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </button>
+
+        <nav className={menuOpen ? 'nav active' : 'nav'}>
           <ul className="nav-links">
             <li>
-              <a href="#home">Accueil</a>
+              <button
+                className={active === 'home' ? 'active' : ''}
+                onClick={() => scrollToSection('home')}
+              >
+                Accueil
+              </button>
             </li>
 
             <li>
-              <a href="#team">Équipe</a>
+              <button
+                className={active === 'team' ? 'active' : ''}
+                onClick={() => scrollToSection('team')}
+              >
+                Équipe
+              </button>
             </li>
 
             <li>
-              <a href="#skills">Compétences</a>
+              <button
+                className={active === 'skills' ? 'active' : ''}
+                onClick={() => scrollToSection('skills')}
+              >
+                Compétences
+              </button>
             </li>
 
             <li>
-              <a href="#projects">Projets</a>
+              <button
+                className={active === 'projects' ? 'active' : ''}
+                onClick={() => scrollToSection('projects')}
+              >
+                Projets
+              </button>
             </li>
 
             <li>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-export default Header;*/
-
-import { Link } from 'react-router-dom';
-import './Header.css';
-
-function Header() {
-  return (
-    <header className="header">
-      <div className="container">
-        <Link to="/" className="logo">
-          HTTP<span>3</span>
-        </Link>
-
-        <nav>
-          <ul className="nav-links">
-            <li>
-              <Link to="/">Accueil</Link>
-            </li>
-
-            <li>
-              <Link to="/equipe">Équipe</Link>
-            </li>
-
-            <li>
-              <Link to="/competences">Compétences</Link>
-            </li>
-
-            <li>
-              <Link to="/projets">Projets</Link>
-            </li>
-
-            <li>
-              <Link to="/contact">Contact</Link>
+              <button
+                className={active === 'contact' ? 'active' : ''}
+                onClick={() => scrollToSection('contact')}
+              >
+                Contact
+              </button>
             </li>
           </ul>
         </nav>
