@@ -35,42 +35,42 @@ function Equipe() {
 
   return (
     <section id="team" className="team-section">
-      <div className="section-header">
-        <p className="section-tag">NOTRE ÉQUIPE</p>
+      <div className="container">
+        <div className="section-header">
+          <p className="section-tag">NOTRE ÉQUIPE</p>
 
-        <h2>Trois étudiants, une même passion.</h2>
+          <h2>Trois étudiants, une même passion.</h2>
 
-        <p className="section-description">
-          Nous collaborons afin de concevoir des applications Web modernes, responsives et adaptées
-          aux besoins réels.
-        </p>
-      </div>
+          <p className="section-description">
+            Nous collaborons afin de concevoir des applications Web modernes, responsives et
+            adaptées aux besoins réels.
+          </p>
+        </div>
 
-      <div className="team-grid">
-        {members.map((member) => (
-          <article className="member-card" key={member.nom}>
-            <img src={member.photo} alt={member.nom} className="member-photo" />
+        <div className="team-grid">
+          {members.map((member) => (
+            <article className="member-card" key={member.nom}>
+              <img src={member.photo} alt={member.nom} className="member-photo" />
 
-            <h3>{member.nom}</h3>
+              <h3>{member.nom}</h3>
 
-            <p className="member-role">{member.domaine}</p>
+              <p className="member-role">{member.domaine}</p>
 
-            <p className="member-description">{member.description}</p>
+              <p className="member-description">{member.description}</p>
 
-            <div className="member-links">
-              <a href={member.github} target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
+              <div className="member-links">
+                <a href={member.github} target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
 
-              <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-            </div>
-          </article>
-        ))}
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
-export default Equipe;
