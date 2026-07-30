@@ -1,17 +1,13 @@
 .projects-section {
   padding: 5rem 1.5rem;
-  background: #0f172a;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
   scroll-margin-top: 90px;
-
   min-height: 100vh;
-
   padding: 120px 25px 80px;
 
   /*display: flex;
-
   align-items: center;
-
   justify-content: center;*/
 }
 
@@ -23,7 +19,7 @@
 
 .projects-subtitle {
   text-align: center;
-  color: #94a3b8;
+  color: var(--text-secondary);
   max-width: 700px;
   margin: auto;
   margin-bottom: 4rem;
@@ -46,7 +42,7 @@
 
 .project-card,
 .group-card {
-  background: #1e293b;
+  background: var(--card);
   border-radius: 20px;
   overflow: hidden;
   transition: 0.35s;
@@ -79,7 +75,7 @@
 
 .project-content p,
 .group-content p {
-  color: #cbd5e1;
+  color: var(--text-secondary);
   line-height: 1.7;
 }
 

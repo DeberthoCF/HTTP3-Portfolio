@@ -74,3 +74,5 @@ function Equipe() {
     </section>
   );
 }
+
+export default Equipe;

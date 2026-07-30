@@ -1,22 +1,15 @@
 .team-section {
   padding: 5rem 1.5rem;
-  background: #111827;
+  background: var(--section);
   scroll-margin-top: 90px;
   min-height: 100vh;
-
   padding: 120px 25px 80px;
-
-  /*display: flex;
-
-  align-items: center;
-
-  justify-content: center;*/
 }
 
-.container {
+.team-section .container {
   width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .section-header {
@@ -50,7 +43,7 @@
 }
 
 .member-card {
-  background: #1e293b;
+  background: var(--card);
   border-radius: 18px;
   padding: 2rem;
   text-align: center;
@@ -71,7 +64,7 @@
 }
 
 .member-card h3 {
-  color: white;
+  color: var(--text);
   margin-bottom: 0.5rem;
 }
 
@@ -82,7 +75,7 @@
 }
 
 .member-description {
-  color: #cbd5e1;
+  color: var(--text-secondary);
   line-height: 1.7;
 }
 

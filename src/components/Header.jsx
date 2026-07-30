@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import './Header.css';
+import { useContext } from 'react';
+
+import { ThemeContext } from '../context/ThemeContext';
 
 function Header() {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
@@ -99,6 +104,9 @@ function Header() {
               </button>
             </li>
           </ul>
+          <button className="theme-btn" onClick={toggleTheme}>
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
         </nav>
       </div>
     </header>
