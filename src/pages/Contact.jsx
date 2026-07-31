@@ -9,6 +9,7 @@ function Contact() {
   });
 
   const [errors, setErrors] = useState({});
+  const [statusMessage, setStatusMessage] = useState('');
 
   function handleChange(e) {
     setForm({
@@ -37,8 +38,9 @@ function Contact() {
     return newErrors;
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    setStatusMessage('');
 
     const validation = validate();
 
@@ -49,13 +51,37 @@ function Contact() {
 
     setErrors({});
 
-    alert('Merci ! Votre message est prêt à être envoyé au serveur.');
+    try {
+      // 1) URL relative pour la compatibilité local/production
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
 
-    setForm({
-      nom: '',
-      email: '',
-      message: '',
-    });
+      // 2) Vérification du statut de la réponse avant de lire le JSON
+      if (!response.ok) {
+        throw new Error('Erreur serveur');
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatusMessage('Votre message a bien été envoyé !');
+        setForm({
+          nom: '',
+          email: '',
+          message: '',
+        });
+      } else {
+        setStatusMessage(data.message || "Une erreur est survenue lors de l'envoi.");
+      }
+    } catch (error) {
+      console.error('Erreur lors de la requête:', error);
+      setStatusMessage('Impossible de contacter le serveur.');
+    }
   }
 
   return (
@@ -71,6 +97,17 @@ function Contact() {
       </div>
 
       <form className="contact-form" onSubmit={handleSubmit} noValidate>
+        {/* 3) Classe dynamique pour le style vert (success) ou rouge (error) */}
+        {statusMessage && (
+          <div
+            className={
+              statusMessage.includes('bien') ? 'status-message success' : 'status-message error'
+            }
+          >
+            {statusMessage}
+          </div>
+        )}
+
         <div className="form-group">
           <label htmlFor="name">Nom complet</label>
 

@@ -1,6 +1,101 @@
+import { useState } from 'react';
 import './Projets.css';
 
 function Projets() {
+  const [filtre, setFiltre] = useState('Tous');
+  const [modalMedia, setModalMedia] = useState(null); // Gère l'affichage du GIF en Modal
+
+  const projets = [
+    {
+      categorie: 'Personnel',
+      auteur: 'Debertho Lentz BELLEGARDE',
+      titre: "Reproduction d'une interface Web",
+      description:
+        "Reproduction fidèle d'une interface proposée dans le cadre du cours de Conception de sites Web.",
+      image: '/images/project_web1.png',
+      technologies: 'HTML5 • CSS3 • JavaScript',
+      github: 'https://github.com/DeberthoCF/INF3500-Devoir1',
+      demoGif: '/images/project_web1.png',
+
+      demoUrl: '#',
+    },
+    {
+      categorie: 'Personnel',
+      auteur: 'Debertho Lentz BELLEGARDE',
+      titre: 'Weather Dashboard',
+      description: "Tableau de bord météo interactif utilisant les prévisions d'Open-Meteo.",
+      image: '/images/weather.png',
+      technologies: 'HTML5 • CSS3 • JavaScript • Fetch API • Open-Meteo API',
+      github: 'https://github.com/DeberthoCF/weather-dashboard',
+      demoGif: null,
+      demoUrl: 'https://deberthocf.github.io/weather-dashboard/',
+    },
+    {
+      categorie: 'Personnel',
+      auteur: 'Jackensly CHARLES',
+      titre: "Reproduction d'une interface Web",
+      description:
+        "Reproduction fidèle d'une interface proposée dans le cadre du cours de Conception de sites Web.",
+      image: '/images/project_web1.png',
+      technologies: 'HTML5 • CSS3 • JavaScript',
+      github: 'https://github.com/Jackooking/Devoir_1_INF3500_corrigee',
+      demoGif: '/images/project_web1.png',
+      demoUrl: null,
+    },
+    {
+      categorie: 'Personnel',
+      auteur: 'Jackensly CHARLES',
+      titre: 'Country Explorer',
+      description:
+        "Recherche et affichage détaillé d'informations sur les pays via REST Countries API.",
+      image: '/images/country.jpg',
+      technologies: 'HTML5 • CSS3 • JavaScript • REST Countries API',
+      github: 'https://github.com/Jackooking/Devoir_2_LOG3500',
+      demoGif: null,
+      demoUrl: 'https://jackooking.github.io/Devoir_2_LOG3500/',
+    },
+    {
+      categorie: 'Personnel',
+      auteur: 'Carldens Emmanuel PAUL',
+      titre: "Reproduction d'une interface Web",
+      description:
+        "Reproduction fidèle d'une interface proposée dans le cadre du cours de Conception de sites Web.",
+      image: '/images/project_web1.png',
+      technologies: 'HTML5 • CSS3 • JavaScript',
+      github: 'https://github.com/Carl-Devv/signup-page',
+      demoGif: '/images/project_web1.png',
+      demoUrl: null,
+    },
+    {
+      categorie: 'Personnel',
+      auteur: 'Carldens Emmanuel PAUL',
+      titre: 'Country Explorer',
+      description:
+        "Recherche et affichage détaillé d'informations sur les pays via REST Countries API.",
+      image: '/images/country.jpg',
+      technologies: 'HTML5 • CSS3 • JavaScript • REST Countries API',
+      github: 'https://github.com/Carl-Devv/L-Atlas',
+      demoGif: '/images/country.gif',
+      demoUrl: null,
+    },
+    {
+      categorie: 'Groupe',
+      idee: 'Carldens Emmanuel PAUL',
+      auteur: 'Debertho Lentz BELLEGARDE',
+      titre: 'Jan Chèche, Jan Trouve',
+      description:
+        'Prototype Android qui permettra aux citoyens haïtiens de retrouver des objets perdus.',
+      image: '/images/jancheche.jpg',
+      technologies: 'MIT App Inventor • TinyDB',
+      github: '#',
+      demoGif: '/images/jancheche.gif',
+      demoUrl: null,
+    },
+  ];
+
+  const projetsFiltres =
+    filtre === 'Tous' ? projets : projets.filter((projet) => projet.categorie === filtre);
+
   return (
     <section id="projects" className="projects-section">
       <div className="container">
@@ -10,160 +105,90 @@ function Projets() {
           Découvrez quelques réalisations académiques et personnelles de notre équipe.
         </p>
 
-        {/* ===================== */}
-        {/* DEBERTHO */}
-        {/* ===================== */}
+        <div className="filter-buttons">
+          <button className={filtre === 'Tous' ? 'active' : ''} onClick={() => setFiltre('Tous')}>
+            Tous
+          </button>
 
-        <div className="project-category">
-          <h3>Debertho Lentz BELLEGARDE</h3>
+          <button
+            className={filtre === 'Personnel' ? 'active' : ''}
+            onClick={() => setFiltre('Personnel')}
+          >
+            Personnels
+          </button>
 
-          <div className="project-grid">
-            <article className="project-card">
-              <img src="/images/project-web1.jpg" alt="Projet Web 1" />
-
-              <div className="project-content">
-                <h4>Reproduction d'une interface Web</h4>
-
-                <p>
-                  Reproduction fidèle d'une interface proposée dans le cadre du cours de Conception
-                  de sites Web.
-                </p>
-
-                <span className="tech">HTML5 • CSS3 • JavaScript</span>
-
-                <div className="project-links">
-                  <a href="#" target="_blank" rel="noreferrer">
-                    GitHub
-                  </a>
-
-                  <a href="#" target="_blank" rel="noreferrer">
-                    Démo
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article className="project-card">
-              <img src="/images/weather.jpg" alt="Weather Dashboard" />
-
-              <div className="project-content">
-                <h4>Weather Dashboard</h4>
-
-                <p>
-                  Tableau de bord météo utilisant Open-Meteo avec recherche par ville et affichage
-                  des prévisions.
-                </p>
-
-                <span className="tech">HTML5 • CSS3 • JavaScript • Fetch API • Open-Meteo API</span>
-
-                <div className="project-links">
-                  <a href="#" target="_blank" rel="noreferrer">
-                    GitHub
-                  </a>
-
-                  <a href="#" target="_blank" rel="noreferrer">
-                    Démo
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
+          <button
+            className={filtre === 'Groupe' ? 'active' : ''}
+            onClick={() => setFiltre('Groupe')}
+          >
+            Groupe
+          </button>
         </div>
 
-        {/* ===================== */}
-        {/* JACKENGSLY */}
-        {/* ===================== */}
-
-        <div className="project-category">
-          <h3>Jackengsly</h3>
-
-          <div className="project-grid">
-            <article className="project-card">
-              <img src="/images/project-web2.jpg" alt="" />
+        <div className="project-grid">
+          {projetsFiltres.map((projet) => (
+            <article className="project-card" key={`${projet.titre}-${projet.auteur}`}>
+              <img src={projet.image} alt={projet.titre} className="project-image" />
 
               <div className="project-content">
-                <h4>Reproduction d'une interface Web</h4>
+                <h4>{projet.titre}</h4>
 
-                <p>Intégration responsive d'une maquette HTML/CSS avec JavaScript.</p>
+                {/* Si une idée est spécifiée (Projet de groupe) */}
+                {projet.idee && (
+                  <p className="project-author">
+                    <span>Idée :</span> {projet.idee}
+                  </p>
+                )}
 
-                <span className="tech">HTML5 • CSS3 • JavaScript</span>
+                <p className="project-author">
+                  <span>Développé par :</span> {projet.auteur}
+                </p>
+
+                <p className="project-description">{projet.description}</p>
+
+                <span className="tech">{projet.technologies}</span>
 
                 <div className="project-links">
-                  <a href="#">GitHub</a>
+                  {projet.github && (
+                    <a href={projet.github} target="_blank" rel="noopener noreferrer">
+                      GitHub
+                    </a>
+                  )}
 
-                  <a href="#">Démo</a>
+                  {projet.demoGif ? (
+                    <button
+                      type="button"
+                      className="btn-demo"
+                      onClick={() => setModalMedia({ title: projet.titre, gif: projet.demoGif })}
+                    >
+                      Démo 🎬
+                    </button>
+                  ) : (
+                    projet.demoUrl && (
+                      <a href={projet.demoUrl} target="_blank" rel="noopener noreferrer">
+                        Démo
+                      </a>
+                    )
+                  )}
                 </div>
               </div>
             </article>
-
-            <article className="project-card">
-              <img src="/images/country.jpg" alt="" />
-
-              <div className="project-content">
-                <h4>Country Explorer</h4>
-
-                <p>
-                  Recherche d'un pays avec affichage du drapeau, de la capitale, de la population et
-                  d'autres informations.
-                </p>
-
-                <span className="tech">
-                  HTML5 • CSS3 • JavaScript • Fetch API • REST Countries API
-                </span>
-
-                <div className="project-links">
-                  <a href="#">GitHub</a>
-
-                  <a href="#">Démo</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        {/* ===================== */}
-        {/* PROJET DE GROUPE */}
-        {/* ===================== */}
-
-        <div className="group-project">
-          <h3>Projet de Groupe</h3>
-
-          <article className="group-card">
-            <img src="/images/jancheche.jpg" alt="Jan Chèche, Jan Trouve" />
-
-            <div className="group-content">
-              <h4>Jan Chèche, Jan Trouve</h4>
-
-              <p>
-                Prototype fonctionnel (MVP) d'une application mobile Android permettant de déclarer
-                un objet retrouvé et de rechercher un objet perdu.
-              </p>
-
-              <div className="credits">
-                <p>
-                  <strong>Idée</strong>
-                  <br />
-                  Carldens Emmanuel PAUL
-                </p>
-
-                <p>
-                  <strong>Développement</strong>
-                  <br />
-                  Debertho Lentz BELLEGARDE
-                </p>
-              </div>
-
-              <span className="tech">MIT App Inventor • TinyDB</span>
-
-              <div className="project-links">
-                <a href="#">GitHub</a>
-
-                <a href="#">Démo</a>
-              </div>
-            </div>
-          </article>
+          ))}
         </div>
       </div>
+
+      {/* MODAL LIGHTBOX POUR LA DÉMO GIF */}
+      {modalMedia && (
+        <div className="modal-overlay" onClick={() => setModalMedia(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setModalMedia(null)}>
+              ✕
+            </button>
+            <h3>Démo — {modalMedia.title}</h3>
+            <img src={modalMedia.gif} alt={`Aperçu GIF ${modalMedia.title}`} />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -25,6 +25,14 @@
   font-size: 0.9rem;
 }
 
+.section-title {
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  font-size: 3rem;
+}
+
 /* ---------- */
 
 .category-grid {

@@ -22,7 +22,8 @@ function Header() {
         });
       },
       {
-        threshold: 0.55,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0,
       }
     );
 
@@ -52,10 +53,6 @@ function Header() {
         >
           HTTP<span>3</span>
         </a>
-
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
-        </button>
 
         <nav className={menuOpen ? 'nav active' : 'nav'}>
           <ul className="nav-links">
@@ -104,10 +101,20 @@ function Header() {
               </button>
             </li>
           </ul>
+        </nav>
+        <div className="header-actions">
           <button className="theme-btn" onClick={toggleTheme}>
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
-        </nav>
+
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? '✕' : '☰'}
+          </button>
+        </div>
       </div>
     </header>
   );

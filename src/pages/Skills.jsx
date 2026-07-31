@@ -30,12 +30,6 @@ function Skills() {
 
         <h2 className="section-title">Technologies et outils</h2>
 
-        <p className="section-subtitle">
-          Au cours de notre formation en Génie informatique à l'ISTEAH, nous développons
-          progressivement des compétences en conception d'interfaces, développement Web moderne et
-          outils collaboratifs.
-        </p>
-
         <div className="category-grid">
           {categories.map((category) => (
             <div className="category-card" key={category.title}>

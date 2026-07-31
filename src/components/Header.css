@@ -3,7 +3,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--bg);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
   transition: 0.35s;
   backdrop-filter: blur(10px);
   z-index: 999;
@@ -45,7 +46,7 @@
 }
 
 .nav-links button:hover {
-  background: rgba(0, 216, 255, 0.15);
+  background: #00d8ff26;
 }
 
 .nav-links button.active {
@@ -57,7 +58,7 @@
   display: none;
   background: transparent;
   border: none;
-  color: #ffffff;
+  color: var(--text);
   font-size: 30px;
   cursor: pointer;
   padding: 0;
@@ -74,7 +75,7 @@
     top: 70px;
     left: 0;
     width: 100%;
-    background: #0f172a;
+    background: var(--card);
     display: none;
   }
 
@@ -96,11 +97,22 @@
   border: none;
   cursor: pointer;
   font-size: 22px;
-  margin-left: 20px;
-  color: white;
-  transition: 0.3s;
+  margin-left: 0px;
+  color: var(--text);
+
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
 .theme-btn:hover {
   transform: scale(1.2);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }

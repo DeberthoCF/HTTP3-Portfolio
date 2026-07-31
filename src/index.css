@@ -1,5 +1,10 @@
+section[id] {
+  scroll-margin-top: 70px; /* Aligne le haut de chaque section sous le header */
+}
+
 :root {
   --bg: #0f172a;
+  --header-bg: #1e293b;
   --section: #111827;
   --card: #1e293b;
   --text: #ffffff;
@@ -12,8 +17,9 @@
 
 body[data-theme='light'] {
   --bg: #f7fafc;
+  --header-bg: #e4e9ec;
   --section: #ffffff;
-  --card: #ffffff;
+  --card: #e4e9ec;
   --text: #0f172a;
   --text-secondary: #475569;
   --accent: #0284c7;
@@ -73,4 +79,12 @@ section {
 /* sil pa mache, on supprime */
 .main-content {
   padding-top: 70px;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--footer);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
 }
