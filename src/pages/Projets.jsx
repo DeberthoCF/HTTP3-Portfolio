@@ -48,7 +48,7 @@ function Projets() {
       titre: 'Country Explorer',
       description:
         "Recherche et affichage détaillé d'informations sur les pays via REST Countries API.",
-      image: '/images/country.jpg',
+      image: '/images/pays_Jackensly.png',
       technologies: 'HTML5 • CSS3 • JavaScript • REST Countries API',
       github: 'https://github.com/Jackooking/Devoir_2_LOG3500',
       demoGif: null,
@@ -72,10 +72,10 @@ function Projets() {
       titre: 'Country Explorer',
       description:
         "Recherche et affichage détaillé d'informations sur les pays via REST Countries API.",
-      image: '/images/country.jpg',
+      image: '/images/pays_Carldensf.jpeg',
       technologies: 'HTML5 • CSS3 • JavaScript • REST Countries API',
       github: 'https://github.com/Carl-Devv/L-Atlas',
-      demoGif: '/images/country.gif',
+      demoGif: '/images/pays_Carldensf.jpeg',
       demoUrl: null,
     },
     {
