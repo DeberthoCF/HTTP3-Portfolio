@@ -8,9 +8,12 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
-
         changeOrigin: true,
       },
     },
+  },
+
+  preview: {
+    allowedHosts: true, // Autorise tous les domaines (y compris Railway)
   },
 });
