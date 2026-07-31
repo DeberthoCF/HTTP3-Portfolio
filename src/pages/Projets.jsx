@@ -85,10 +85,10 @@ function Projets() {
       titre: 'Jan Chèche, Jan Trouve',
       description:
         'Prototype Android qui permettra aux citoyens haïtiens de retrouver des objets perdus.',
-      image: '/images/jancheche.jpg',
+      image: '/images/jancheche_jantrouve.jpeg',
       technologies: 'MIT App Inventor • TinyDB',
       github: '#',
-      demoGif: '/images/jancheche.gif',
+      demoGif: '/images/jancheche_jantrouve.jpeg',
       demoUrl: null,
     },
   ];
