@@ -88,7 +88,7 @@ function Projets() {
       image: '/images/jancheche_jantrouve.jpeg',
       technologies: 'MIT App Inventor • TinyDB',
       github: '#',
-      demoGif: '/images/jancheche_jantrouve.jpeg',
+      demoGif: '/images/janjan.gif',
       demoUrl: null,
     },
   ];
