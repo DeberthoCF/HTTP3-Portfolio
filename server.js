@@ -65,7 +65,7 @@ app.post('/api/contact', (req, res) => {
   });
 });
 
-// ✅ CORRECTION : Utilisation de /{*path} au lieu de '*' ou '/*'
+//CORRECTION an se paske : Utilisation de /{*path} au lieu de '*' ou '/*'
 app.get('/{*path}', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
