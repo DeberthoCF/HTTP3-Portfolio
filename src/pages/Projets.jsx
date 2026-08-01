@@ -3,7 +3,7 @@ import './Projets.css';
 
 function Projets() {
   const [filtre, setFiltre] = useState('Tous');
-  const [modalMedia, setModalMedia] = useState(null); // Gère l'affichage du GIF en Modal
+  const [modalMedia, setModalMedia] = useState(null); // nous permet de Gèrer l'affichage du GIF en Modal
 
   const projets = [
     {

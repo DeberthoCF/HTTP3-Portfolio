@@ -60,7 +60,7 @@
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #38bdf8;
-  margin: 0 auto 1.5rem auto; /* <-- Le "auto" à gauche et à droite centre le cercle parfaitement ! */
+  margin: 0 auto 1.5rem auto; /* <-- plase "auto" à gauche et à droite pou centrer  cercle lan  ! */
   display: block;
   margin-bottom: 1.5rem;
   object-position: center 20%;
@@ -121,7 +121,7 @@
 
 .github-login {
   margin-top: 8px;
-  margin-bottom: 0rem; /* Espace suffisant avant la description */
+  margin-bottom: 0rem; /* Espace suffisant avant description */
 
   color: #38bdf8;
 
@@ -134,7 +134,7 @@
   color: var(--text-secondary);
 
   font-size: 0.95rem;
-  margin-bottom: 0.5rem; /* Espace suffisant avant la description */
+  margin-bottom: 0.5rem; /* Pou n ka determiner Espace  avant la description */
 }
 
 .member-university {
